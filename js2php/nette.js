@@ -19,7 +19,7 @@
 					"public function " + k + "(" + parameters.map(function (p) { return "$" + p; }).join() +
 						") {\n" + (k === "startup" ? "parent::startup();\n" : "") +
 						"$call = " + @@ var_export(`call, TRUE) @@ + ";\n" +
-						"return JS::toNative($call(JS::$global, JSObjectWrapper::wrapObject($this), " +
+						"return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), " +
 							"JS::$global->properties['Nette']->properties['_presenters']->properties[" +
 							@@ var_export(`name, TRUE) @@ + "]->properties[" + @@ var_export(`k, TRUE) @@ +
 							"], array(" + parameters.map(function (p) {
