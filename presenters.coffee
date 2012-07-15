@@ -12,7 +12,7 @@ Nette.Presenter "Homepage", {
 
 	actionSomebody: (name) ->
 		@who = name
-		@setView("default")
+		@setView "default"
 	
 	actionFormSent: ->
 		@redirect "somebody", [(Nette.Form "Name").getComponent("name").value]

@@ -1,9 +1,7 @@
 #!/usr/bin/php
 <?php
 require __DIR__ . '/JSClassDumper.php';
-require __DIR__ . '/JavascriptParser.php';
-require __DIR__ . '/JavascriptCompiler.php';
-require __DIR__ . '/JavascriptInterpreter.php';
+require __DIR__ . '/JSInterpreter.php';
 require __DIR__ . '/image.php';
 
 if (!isset($argv[1]) || $argv[1] === '-h' || $argv[1] === '--help' || !isset($argv[2])) {
@@ -16,7 +14,7 @@ $code = file_get_contents(__DIR__ . '/nette.js') . $code . "\nreturn Nette._code
 $definedFunctions = get_defined_functions();
 $definedFunctions = $definedFunctions['user'];
 
-$interpreter = new JavascriptInterpreter($code);
+$interpreter = new JSInterpreter($code);
 $lines = explode("\n", $interpreter->compile());
 $codes = $interpreter->run();
 
