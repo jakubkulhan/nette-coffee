@@ -19,11 +19,11 @@
 					"public function " + k + "(" + parameters.map(function (p) { return "$" + p; }).join() +
 						") {\n" + (k === "startup" ? "parent::startup();\n" : "") +
 						"$call = " + @@ var_export(`call, TRUE) @@ + ";\n" +
-						"return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), " +
+						"return JS::toNative($call(JS::$global, JS::fromNative($this), " +
 							"JS::$global->properties['Nette']->properties['_presenters']->properties[" +
 							@@ var_export(`name, TRUE) @@ + "]->properties[" + @@ var_export(`k, TRUE) @@ +
 							"], array(" + parameters.map(function (p) {
-								return "JSObjectWrapper::wrapObject($" + p + ")";
+								return "JS::fromNative($" + p + ")";
 							}).join() + ")));\n" +
 					"}\n\n";
 
@@ -51,7 +51,7 @@
 			return Nette._forms[name];
 		}
 
-		var f = @@ JSObjectWrapper::wrapObject(new Nette\Forms\Form) @@;
+		var f = @@ JS::fromNative(new Nette\Forms\Form) @@;
 		callback.call(f);
 
 		return Nette._forms[name] = f;

@@ -6,23 +6,23 @@ public function getWho() { return $this->who; }
 public function setWho($newValue) { $this->who = $newValue; return $this; }
 public function startup() {
 parent::startup();
-$call = '_46f91fc542dceee1f691dd6daa6a4a0f_9';
-return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['startup'], array()));
+$call = '_4822db964cea9e5a953d9004e9c17abb_9';
+return JS::toNative($call(JS::$global, JS::fromNative($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['startup'], array()));
 }
 
 public function actionSomebody($name) {
-$call = '_46f91fc542dceee1f691dd6daa6a4a0f_11';
-return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['actionSomebody'], array(JSObjectWrapper::wrapObject($name))));
+$call = '_4822db964cea9e5a953d9004e9c17abb_11';
+return JS::toNative($call(JS::$global, JS::fromNative($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['actionSomebody'], array(JS::fromNative($name))));
 }
 
 public function actionFormSent() {
-$call = '_46f91fc542dceee1f691dd6daa6a4a0f_12';
-return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['actionFormSent'], array()));
+$call = '_4822db964cea9e5a953d9004e9c17abb_12';
+return JS::toNative($call(JS::$global, JS::fromNative($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['actionFormSent'], array()));
 }
 
 public function renderDefault() {
-$call = '_46f91fc542dceee1f691dd6daa6a4a0f_13';
-return JSObjectWrapper::unwrapObject($call(JS::$global, JSObjectWrapper::wrapObject($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['renderDefault'], array()));
+$call = '_4822db964cea9e5a953d9004e9c17abb_13';
+return JS::toNative($call(JS::$global, JS::fromNative($this), JS::$global->properties['Nette']->properties['_presenters']->properties['Homepage']->properties['renderDefault'], array()));
 }
 
 }

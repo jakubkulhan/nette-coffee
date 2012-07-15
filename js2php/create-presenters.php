@@ -30,6 +30,8 @@ foreach (array_diff($newDefinedFunctions, $definedFunctions) as $function) {
 
 	$reflection = new ReflectionFunction($function);
 
+	var_dump($function);
+
 	$image .= implode("\n", array_slice(
 		$lines,
 		$reflection->getStartLine() - 1,
@@ -49,6 +51,5 @@ foreach ((array) $codes as $presenter => $code) {
 file_put_contents("{$argv[2]}/js/image.php",
 	"<?php\n" .
 	substr(file_get_contents(__DIR__ . '/image.php'), 5) . // stripping <?php
-	substr(file_get_contents(__DIR__ . '/JSObjectWrapper.php'), 5) .
 	$image .
 	JSClassDumper::dumpStaticProperties('JS'));
